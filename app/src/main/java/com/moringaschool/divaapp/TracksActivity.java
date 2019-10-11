@@ -19,7 +19,7 @@ public class TracksActivity extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.listView);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,tracks);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
         mListView.setAdapter(adapter);
     }
 }
