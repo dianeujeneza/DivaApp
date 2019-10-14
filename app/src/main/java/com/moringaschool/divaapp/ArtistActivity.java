@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+
 public class ArtistActivity extends AppCompatActivity {
     private ListView mListView;
+//    @BindView(R.id.ListView) TextView ListView mListView;
     private String[] artists = new String[] {"Dadju","Chris Brown","Justin Bieber","Ed Sheeran",
     "Beyonce","Taylor Swift"};
 

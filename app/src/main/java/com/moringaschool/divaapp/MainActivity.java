@@ -7,15 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private Button mFindTracksButton;
+    @BindView(R.id.findTracksBtn) Button mFindTracksButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFindTracksButton=(Button) findViewById(R.id.findTracksBtn);
+        ButterKnife.bind(this);
 
         mFindTracksButton.setOnClickListener(new View.OnClickListener() {
             @Override
