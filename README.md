@@ -7,10 +7,10 @@ This is a mobile application that will help users to listen to their local music
 To install this application users need to have Google Playstore or any other application store he may have in the device.
 
 ## Setup/Installation Requirements
--Go to play store
--Choose DivaApp
--Click Install
--Wait until it is finished to start using it
+    -Go to play store
+    -Choose DivaApp
+    -Click Install
+    -Wait until it is finished to start using it
 
 ### Deployment
 This application is a version 1 App this means it is not yet deployed online
