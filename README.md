@@ -22,7 +22,7 @@ Navigate through them to choose what you want
 The output is to listen to the music of your choice
 
 ## Technologies Used
-JAVA,SPARK Framework,BOOTSTRAP,POSTGRES
+Java,Andoid
 ## Support and contact details
 If countered a problem please don't hesitate to email me on dianesis17@gmail.com.
 ### License
