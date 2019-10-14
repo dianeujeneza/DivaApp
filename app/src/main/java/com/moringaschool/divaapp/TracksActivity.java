@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class TracksActivity extends AppCompatActivity {
     private ListView mListView;
-    private String[] tracks = new String[] {"Mi Mero Mole", "Mother's Bistro",
+    private String[] tracks = new String[] {"Jaloux", "Plus le Temps",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             };
 
