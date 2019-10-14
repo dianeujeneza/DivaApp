@@ -19,7 +19,7 @@ This application is a version 1 App this means it is not yet deployed online
 Just click start on the home page
 Next you will find diffent tabs
 Navigate through them to choose what you want
-The output is to listen to the music of your choice
+The output is to listen to the music of your choice.
 
 ## Technologies Used
 Java,Andoid
