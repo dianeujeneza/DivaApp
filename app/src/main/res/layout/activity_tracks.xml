@@ -19,6 +19,7 @@
         android:id="@+id/locationTextView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:text="Tracks"
         android:textSize="40dp"
          />
 

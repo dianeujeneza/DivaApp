@@ -13,6 +13,16 @@
         android:src="@drawable/bgg"
         android:scaleType="centerCrop" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationTextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="Artists"
+        android:textSize="40dp"
+        />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
