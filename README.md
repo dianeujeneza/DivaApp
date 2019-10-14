@@ -20,8 +20,7 @@ Just click start on the home page
 Next you will find diffent tabs
 Navigate through them to choose what you want
 The output is to listen to the music of your choice
-## Known Bugs
-For now users cant'be able to view after inserting informations but they can view them in the database
+
 ## Technologies Used
 JAVA,SPARK Framework,BOOTSTRAP,POSTGRES
 ## Support and contact details
