@@ -3,7 +3,7 @@
 #### By Diane Ujeneza
 ## Description
 This is a mobile application that will help users to listen to their local music and also be able to read music's lyrics.
-##Prerequisites
+## Prerequisites
 To install this application users need to have Google Playstore or any other application store he may have in the device.
 
 ## Setup/Installation Requirements
@@ -12,7 +12,7 @@ To install this application users need to have Google Playstore or any other app
 -Click Install
 -Wait until it is finished to start using it
 
-###Deployment
+### Deployment
 This application is a version 1 App this means it is not yet deployed online
 
 ## Behavior Driven Development(BDD)
