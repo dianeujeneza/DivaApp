@@ -6,5 +6,5 @@ public interface MusixApi {
     @GET("track.search")
     Call<TrackSearchResponse>getTracks(
             @Query("track") String tr
-    )
+    );
 }
