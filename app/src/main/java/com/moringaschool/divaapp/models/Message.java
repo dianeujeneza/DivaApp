@@ -1,8 +1,10 @@
 
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.divaapp.models.Body;
+import com.moringaschool.divaapp.models.Header;
 
 public class Message {
 

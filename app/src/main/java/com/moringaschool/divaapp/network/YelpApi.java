@@ -1,4 +1,6 @@
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.network;
+
+import com.moringaschool.divaapp.models.TrackSearchResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

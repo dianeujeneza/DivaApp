@@ -1,36 +1,37 @@
 
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.divaapp.models.MusicGenre_;
 
-public class MusicGenreList {
+public class MusicGenreList_ {
 
     @SerializedName("music_genre")
     @Expose
-    private MusicGenre musicGenre;
+    private MusicGenre_ musicGenre;
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public MusicGenreList() {
+    public MusicGenreList_() {
     }
 
     /**
      * 
      * @param musicGenre
      */
-    public MusicGenreList(MusicGenre musicGenre) {
+    public MusicGenreList_(MusicGenre_ musicGenre) {
         super();
         this.musicGenre = musicGenre;
     }
 
-    public MusicGenre getMusicGenre() {
+    public MusicGenre_ getMusicGenre() {
         return musicGenre;
     }
 
-    public void setMusicGenre(MusicGenre musicGenre) {
+    public void setMusicGenre(MusicGenre_ musicGenre) {
         this.musicGenre = musicGenre;
     }
 

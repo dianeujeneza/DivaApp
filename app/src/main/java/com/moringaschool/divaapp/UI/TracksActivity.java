@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import com.moringaschool.divaapp.MusicArrayAdapter;
 import com.moringaschool.divaapp.R;
-import com.moringaschool.divaapp.Track;
-import com.moringaschool.divaapp.TrackSearchResponse;
-import com.moringaschool.divaapp.YelpApi;
-import com.moringaschool.divaapp.YelpClient;
+import com.moringaschool.divaapp.models.Track;
+import com.moringaschool.divaapp.models.TrackSearchResponse;
+import com.moringaschool.divaapp.network.YelpApi;
+import com.moringaschool.divaapp.network.YelpClient;
 
 import java.util.List;
 

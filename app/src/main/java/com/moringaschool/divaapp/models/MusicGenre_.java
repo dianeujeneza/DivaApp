@@ -1,10 +1,10 @@
 
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MusicGenre {
+public class MusicGenre_ {
 
     @SerializedName("music_genre_vanity")
     @Expose
@@ -12,12 +12,12 @@ public class MusicGenre {
     @SerializedName("music_genre_name_extended")
     @Expose
     private String musicGenreNameExtended;
-    @SerializedName("music_genre_parent_id")
-    @Expose
-    private Integer musicGenreParentId;
     @SerializedName("music_genre_name")
     @Expose
     private String musicGenreName;
+    @SerializedName("music_genre_parent_id")
+    @Expose
+    private Integer musicGenreParentId;
     @SerializedName("music_genre_id")
     @Expose
     private Integer musicGenreId;
@@ -26,7 +26,7 @@ public class MusicGenre {
      * No args constructor for use in serialization
      * 
      */
-    public MusicGenre() {
+    public MusicGenre_() {
     }
 
     /**
@@ -37,12 +37,12 @@ public class MusicGenre {
      * @param musicGenreVanity
      * @param musicGenreParentId
      */
-    public MusicGenre(String musicGenreVanity, String musicGenreNameExtended, Integer musicGenreParentId, String musicGenreName, Integer musicGenreId) {
+    public MusicGenre_(String musicGenreVanity, String musicGenreNameExtended, String musicGenreName, Integer musicGenreParentId, Integer musicGenreId) {
         super();
         this.musicGenreVanity = musicGenreVanity;
         this.musicGenreNameExtended = musicGenreNameExtended;
-        this.musicGenreParentId = musicGenreParentId;
         this.musicGenreName = musicGenreName;
+        this.musicGenreParentId = musicGenreParentId;
         this.musicGenreId = musicGenreId;
     }
 
@@ -62,20 +62,20 @@ public class MusicGenre {
         this.musicGenreNameExtended = musicGenreNameExtended;
     }
 
-    public Integer getMusicGenreParentId() {
-        return musicGenreParentId;
-    }
-
-    public void setMusicGenreParentId(Integer musicGenreParentId) {
-        this.musicGenreParentId = musicGenreParentId;
-    }
-
     public String getMusicGenreName() {
         return musicGenreName;
     }
 
     public void setMusicGenreName(String musicGenreName) {
         this.musicGenreName = musicGenreName;
+    }
+
+    public Integer getMusicGenreParentId() {
+        return musicGenreParentId;
+    }
+
+    public void setMusicGenreParentId(Integer musicGenreParentId) {
+        this.musicGenreParentId = musicGenreParentId;
     }
 
     public Integer getMusicGenreId() {

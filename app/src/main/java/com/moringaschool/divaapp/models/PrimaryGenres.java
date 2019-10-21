@@ -1,37 +1,38 @@
 
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.divaapp.models.MusicGenreList_;
 
-public class SecondaryGenres {
+public class PrimaryGenres {
 
     @SerializedName("music_genre_list")
     @Expose
-    private List<MusicGenreList> musicGenreList = null;
+    private List<MusicGenreList_> musicGenreList = null;
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public SecondaryGenres() {
+    public PrimaryGenres() {
     }
 
     /**
      * 
      * @param musicGenreList
      */
-    public SecondaryGenres(List<MusicGenreList> musicGenreList) {
+    public PrimaryGenres(List<MusicGenreList_> musicGenreList) {
         super();
         this.musicGenreList = musicGenreList;
     }
 
-    public List<MusicGenreList> getMusicGenreList() {
+    public List<MusicGenreList_> getMusicGenreList() {
         return musicGenreList;
     }
 
-    public void setMusicGenreList(List<MusicGenreList> musicGenreList) {
+    public void setMusicGenreList(List<MusicGenreList_> musicGenreList) {
         this.musicGenreList = musicGenreList;
     }
 

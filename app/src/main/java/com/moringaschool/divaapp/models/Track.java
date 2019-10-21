@@ -1,9 +1,11 @@
 
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.divaapp.models.PrimaryGenres;
+import com.moringaschool.divaapp.models.SecondaryGenres;
 
 public class  Track {
 
