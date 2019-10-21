@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 public interface YelpApi {
     @GET("track.search")
     Call<TrackSearchResponse>getTrackName(
-            @Query("trackName") String trackName,
-            @Query("term") String term
+            @Query("track_name") String track_name,
+            @Query("artist_name") String artist_name
     );
 }

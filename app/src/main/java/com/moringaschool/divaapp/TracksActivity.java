@@ -10,6 +10,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class TracksActivity extends AppCompatActivity {
 
     private ListView mListView;
@@ -25,7 +31,7 @@ public class TracksActivity extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.listView);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,tracks);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,tracks);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -35,5 +41,40 @@ public class TracksActivity extends AppCompatActivity {
                 Toast.makeText(TracksActivity.this,track,Toast.LENGTH_LONG).show();
             }
         });
+
+        YelpApi client = YelpClient.getClient();
+
+        Call<TrackSearchResponse> call = client.getTrackName("track_name", "artist_name");
+
+        call.enqueue(new Callback<TrackSearchResponse>() {
+            @Override
+            public void onResponse(Call<TrackSearchResponse> call, Response<TrackSearchResponse> response) {
+                if (response.isSuccessful()) {
+                    List<Track> trackList = (List<Track>) response.body().getMessage();
+//                    List<Track> trackList= response.body().getMessage();
+
+                    String[] tracks =new String [trackList.size()];
+                    String[] artists = new String[trackList.size()];
+
+                    for (int i = 0; i< tracks.length; i++){
+                        tracks[i]=trackList.get(i).getTrackName();
+                    }
+
+                    for (int i =0; i<artists.length; i++){
+                        MusicGenre musicGenre = trackList.get(i).getArtistName().get(0);
+                        artists[i]=musicGenre.getMusicGenreName();
+                    }
+
+                    ArrayAdapter adapter=new ArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1,tracks,artists);
+                    mListView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TrackSearchResponse> call, Throwable t) {
+
+            }
+        });
+
     }
 }

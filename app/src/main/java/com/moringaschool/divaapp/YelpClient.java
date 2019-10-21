@@ -40,5 +40,5 @@ public class YelpClient {
 
         return retrofit.create(YelpApi.class);
     }
-}
+
 }
