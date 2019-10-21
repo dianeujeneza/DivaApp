@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+
     @BindView(R.id.findTracksBtn) Button mFindTracksButton;
 
     @Override
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mFindTracksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ArtistActivity.class);
+                Intent intent = new Intent(MainActivity.this,TracksActivity.class);
                 startActivity(intent);
             }
         });
