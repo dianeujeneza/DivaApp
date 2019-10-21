@@ -11,18 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ArtistActivity">
+        <activity android:name=".UI.ArtistActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.divaapp.MainActivity"></meta-data>
+                android:value="com.moringaschool.divaapp.UI.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".TracksActivity">
+        <activity android:name=".UI.TracksActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.divaapp.ArtistActivity"></meta-data>
+                android:value="com.moringaschool.divaapp.UI.ArtistActivity"></meta-data>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

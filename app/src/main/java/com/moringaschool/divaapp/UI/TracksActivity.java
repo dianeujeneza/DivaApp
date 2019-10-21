@@ -1,4 +1,4 @@
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.divaapp.MusicArrayAdapter;
+import com.moringaschool.divaapp.R;
+import com.moringaschool.divaapp.Track;
+import com.moringaschool.divaapp.TrackSearchResponse;
+import com.moringaschool.divaapp.YelpApi;
+import com.moringaschool.divaapp.YelpClient;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -18,7 +25,6 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Body;
 
 public class TracksActivity extends AppCompatActivity {
 
