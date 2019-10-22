@@ -1,6 +1,6 @@
 package com.moringaschool.divaapp.network;
 
-import com.moringaschool.divaapp.YelpBusinessSearchResponse;
+import com.moringaschool.divaapp.models.YelpBusinessSearchResponse;
 //import com.moringaschool.divaapp.models.Body;
 //import com.moringaschool.divaapp.models.Track;
 //import com.moringaschool.divaapp.models.TrackList;
@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface YelpApi {
     @GET("businesses/search")
-    Call<YelpBusinessSearchResponse> getRestaurants(
+    Call<YelpBusinessSearchResponse> getMultimedia(
             @Query("location") String location,
             @Query("term") String term
     );

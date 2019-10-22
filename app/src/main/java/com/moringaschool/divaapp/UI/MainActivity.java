@@ -16,8 +16,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.findTracksBtn) Button mFindTracksButton;
-    @BindView(R.id.trackEditText)
-    EditText mTrack_name;
+    @BindView(R.id.trackEditText) EditText mTrack_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         mFindTracksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String track_name = mTrack_name.getText().toString();
+                String location = mTrack_name.getText().toString();
                 Intent intent = new Intent(MainActivity.this, TracksActivity.class);
-                intent.putExtra("track_name", track_name);
+                intent.putExtra("location", location);
                 startActivity(intent);
             }
         });

@@ -5,20 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import com.moringaschool.divaapp.models.Body;
+//import com.moringaschool.divaapp.models.Track;
+//import com.moringaschool.divaapp.models.TrackList;
+//import com.moringaschool.divaapp.models.TrackSearchResponse;
+
+import com.moringaschool.divaapp.models.Business;
+import com.moringaschool.divaapp.models.Category;
 import com.moringaschool.divaapp.MusicArrayAdapter;
 import com.moringaschool.divaapp.R;
-import com.moringaschool.divaapp.models.Body;
-import com.moringaschool.divaapp.models.Track;
-import com.moringaschool.divaapp.models.TrackList;
-import com.moringaschool.divaapp.models.TrackSearchResponse;
 import com.moringaschool.divaapp.network.YelpApi;
+import com.moringaschool.divaapp.models.YelpBusinessSearchResponse;
 import com.moringaschool.divaapp.network.YelpClient;
 
 import java.util.List;
@@ -34,6 +37,7 @@ public class TracksActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.listView) ListView mListView;
+    @BindView(R.id.tracksTextView) TextView mTracksTextView;
 
 //    private ListView mListView;
 
@@ -52,6 +56,51 @@ public class TracksActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+
+
+        YelpApi client = YelpClient.getClient();
+
+        Call<YelpBusinessSearchResponse> call = client.getMultimedia(location,"multimedia");
+
+        call.enqueue(new Callback<YelpBusinessSearchResponse>() {
+            @Override
+            public void onResponse(Call<YelpBusinessSearchResponse> call, Response<YelpBusinessSearchResponse> response) {
+                hideProgressBar();
+                if (response.isSuccessful()) {
+                    List<Business> mediaList = response.body().getBusinesses();
+                    String[] medias = new String[mediaList.size()];
+                    String[] categories = new String[mediaList.size()];
+
+                    for (int i = 0; i < medias.length; i++){
+                        medias[i] = mediaList.get(i).getName();
+                    }
+
+                    for (int i = 0; i < categories.length; i++) {
+                        Category category = mediaList.get(i).getCategories().get(0);
+                        categories[i] = category.getTitle();
+                    }
+
+                    ArrayAdapter adapter
+                            = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, medias, categories);
+                    mListView.setAdapter(adapter);
+                    showMedias();
+
+                } else {
+                    showUnsuccessfulMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<YelpBusinessSearchResponse> call, Throwable t) {
+                hideProgressBar();
+                showFailureMessage();
+
+            }
+
+        });
+
 //        mListView = (ListView) findViewById(R.id.listView);
 
 
@@ -67,24 +116,24 @@ public class TracksActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Intent intent = getIntent();
-        String q_track = intent.getStringExtra("q_track");
-        YelpApi client = YelpClient.getClient();
+//        Intent intent = getIntent();
+//        String q_track = intent.getStringExtra("q_track");
+//        YelpApi client = YelpClient.getClient();
+//
+//        Call<TrackList> call = client.getTracks(q_track);
 
-        Call<TrackList> call = client.getTracks(q_track);
-
-        call.enqueue(new Callback<TrackList>() {
-            @Override
-            public void onResponse(Call<TrackList> call, Response<TrackList> response) {
-                if (response.isSuccessful()) {
+//        call.enqueue(new Callback<TrackList>() {
+//            @Override
+//            public void onResponse(Call<TrackList> call, Response<TrackList> response) {
+//                if (response.isSuccessful()) {
 //                    List<Track> trackList = (List<Track>) response.body().getMessage();
 //                    List<TrackList> trackList= response.body().getTrackList();
 //                    List<TrackList> trackList=response.body().getMessage();
 //                    Track trackList = response.body().getTrack();
-                    List<TrackList> trackList= response.body().getTrack();
-
-                    String[] tracks =new String [trackList.size()];
-                    String[] artists = new String[trackList.size()];
+//                    List<TrackList> trackList= response.body().getTrack();
+//
+//                    String[] tracks =new String [trackList.size()];
+//                    String[] artists = new String[trackList.size()];
 
 //                    for (int i = 0; i< tracks.length; i++){
 //                        tracks[i]= (trackList.get(i).getTrack());
@@ -97,22 +146,22 @@ public class TracksActivity extends AppCompatActivity {
 //                        artists[i] = trackList.get(i).getArtistName();
 //                    }
 
-                    ArrayAdapter adapter = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, artists,tracks);
-                    mListView.setAdapter(adapter);
+//                    ArrayAdapter adapter = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, artists,tracks);
+//                    mListView.setAdapter(adapter);
+//
+//                    showTracks();
+//                }else{
+//                    showUnsuccessfulMessage();
+//                }
+//            }
 
-                    showTracks();
-                }else{
-                    showUnsuccessfulMessage();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TrackList> call, Throwable t) {
-                hideProgressBar();
-                showFailureMessage();
-
-            }
-        });
+//            @Override
+//            public void onFailure(Call<TrackList> call, Throwable t) {
+//                hideProgressBar();
+//                showFailureMessage();
+//
+//            }
+//        });
 
     }
 
@@ -126,9 +175,9 @@ public class TracksActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showTracks() {
+    private void showMedias() {
         mListView.setVisibility(View.VISIBLE);
-//        mtrackTextView.setVisibility(View.VISIBLE);
+        mTracksTextView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {
