@@ -1,13 +1,20 @@
 
 package com.moringaschool.divaapp.models;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.moringaschool.divaapp.models.PrimaryGenres;
 import com.moringaschool.divaapp.models.SecondaryGenres;
 
-public class  Track {
+public class  Track implements List<TrackList> {
 
     @SerializedName("instrumental")
     @Expose
@@ -122,7 +129,12 @@ public class  Track {
     public Track() {
     }
 
-    /**
+    /**   for (int i =0; i<artists.length; i++){
+//                        MusicGenre musicGenre = trackList.get(i).getArtistName().get(0);
+//                        artists[i]=musicGenre.getMusicGenreName();
+                        artists[i] = trackList.get(i).getArtistName();
+                    }
+
      * 
      * @param firstReleaseDate
      * @param hasLyrics
@@ -479,4 +491,124 @@ public class  Track {
         this.commontrackId = commontrackId;
     }
 
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean contains(@Nullable Object o) {
+        return false;
+    }
+
+    @NonNull
+    @Override
+    public Iterator<TrackList> iterator() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @NonNull
+    @Override
+    public <T> T[] toArray(@NonNull T[] a) {
+        return null;
+    }
+
+    @Override
+    public boolean add(TrackList trackList) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(@Nullable Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(@NonNull Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(@NonNull Collection<? extends TrackList> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, @NonNull Collection<? extends TrackList> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(@NonNull Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(@NonNull Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public TrackList get(int index) {
+        return null;
+    }
+
+    @Override
+    public TrackList set(int index, TrackList element) {
+        return null;
+    }
+
+    @Override
+    public void add(int index, TrackList element) {
+
+    }
+
+    @Override
+    public TrackList remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(@Nullable Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(@Nullable Object o) {
+        return 0;
+    }
+
+    @NonNull
+    @Override
+    public ListIterator<TrackList> listIterator() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    public ListIterator<TrackList> listIterator(int index) {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    public List<TrackList> subList(int fromIndex, int toIndex) {
+        return null;
+    }
 }

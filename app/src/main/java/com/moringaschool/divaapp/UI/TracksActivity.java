@@ -2,6 +2,7 @@ package com.moringaschool.divaapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +14,9 @@ import android.widget.Toast;
 
 import com.moringaschool.divaapp.MusicArrayAdapter;
 import com.moringaschool.divaapp.R;
+import com.moringaschool.divaapp.models.Body;
 import com.moringaschool.divaapp.models.Track;
+import com.moringaschool.divaapp.models.TrackList;
 import com.moringaschool.divaapp.models.TrackSearchResponse;
 import com.moringaschool.divaapp.network.YelpApi;
 import com.moringaschool.divaapp.network.YelpClient;
@@ -56,39 +59,43 @@ public class TracksActivity extends AppCompatActivity {
 //        MusicArrayAdapter adapter = new MusicArrayAdapter(this, android.R.layout.simple_list_item_1, tracks, genres);
 //        mListView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String track=((TextView)view).getText().toString();
-                Toast.makeText(TracksActivity.this,track,Toast.LENGTH_LONG).show();
-            }
-        });
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String track=((TextView)view).getText().toString();
+//                Toast.makeText(TracksActivity.this,track,Toast.LENGTH_LONG).show();
+//            }
+//        });
 
+        Intent intent = getIntent();
+        String q_track = intent.getStringExtra("q_track");
         YelpApi client = YelpClient.getClient();
 
-        Call<TrackSearchResponse> call = client.getTracks("track_name","artist_name","json","callback","api");
+        Call<TrackList> call = client.getTracks(q_track);
 
-        call.enqueue(new Callback<TrackSearchResponse>() {
+        call.enqueue(new Callback<TrackList>() {
             @Override
-            public void onResponse(Call<TrackSearchResponse> call, Response<TrackSearchResponse> response) {
+            public void onResponse(Call<TrackList> call, Response<TrackList> response) {
                 if (response.isSuccessful()) {
-                    List<Track> trackList = (List<Track>) response.body().getMessage();
-//                    List<TrackList> trackList= response.body().getMessage();
+//                    List<Track> trackList = (List<Track>) response.body().getMessage();
+//                    List<TrackList> trackList= response.body().getTrackList();
 //                    List<TrackList> trackList=response.body().getMessage();
+//                    Track trackList = response.body().getTrack();
+                    List<TrackList> trackList= response.body().getTrack();
 
                     String[] tracks =new String [trackList.size()];
                     String[] artists = new String[trackList.size()];
 
-                    for (int i = 0; i< tracks.length; i++){
-                        tracks[i]=trackList.get(i).getTrackName();
-//                        tracks[i]=trackList.get(i).getTrack();
-                    }
+//                    for (int i = 0; i< tracks.length; i++){
+//                        tracks[i]= (trackList.get(i).getTrack());
+////                        tracks[i]=trackList.get(i).getTrack();
+//                    }
 
-                    for (int i =0; i<artists.length; i++){
-//                        MusicGenre musicGenre = trackList.get(i).getArtistName().get(0);
-//                        artists[i]=musicGenre.getMusicGenreName();
-                        artists[i] = trackList.get(i).getArtistName();
-                    }
+//                    for (int i =0; i<artists.length; i++){
+////                        MusicGenre musicGenre = trackList.get(i).getArtistName().get(0);
+////                        artists[i]=musicGenre.getMusicGenreName();
+//                        artists[i] = trackList.get(i).getArtistName();
+//                    }
 
                     ArrayAdapter adapter = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, artists,tracks);
                     mListView.setAdapter(adapter);
@@ -100,7 +107,7 @@ public class TracksActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<TrackSearchResponse> call, Throwable t) {
+            public void onFailure(Call<TrackList> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
 
