@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.divaapp.R;
 import com.moringaschool.divaapp.models.Business;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -61,6 +62,8 @@ public class MultimediaListAdapter extends RecyclerView.Adapter<MultimediaListAd
             mNameTextView.setText(media.getName());
             mCategoryTextView.setText(media.getCategories().get(0).getTitle());
             mRatingTextView.setText("Rating: " + media.getRating() + "/5");
+
+            Picasso.get().load(media.getImageUrl()).into(mMediaImageView);
         }
 
     }
