@@ -129,4 +129,9 @@ public class Location {
         this.displayAddress = displayAddress;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s, %s, %s %s", this.address1, this.city, this.state, this.zipCode);
+    }
+
 }
