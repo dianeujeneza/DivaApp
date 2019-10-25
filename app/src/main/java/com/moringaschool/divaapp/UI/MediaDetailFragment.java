@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
  */
 public class MediaDetailFragment extends Fragment {
     @BindView(R.id.mediaImageView) ImageView mImageLabel;
-    @BindView(R.id.mediaImageView) TextView mNameLabel;
+    @BindView(R.id.mediaNameTextView) TextView mNameLabel;
     @BindView(R.id.cuisineTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;

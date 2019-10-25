@@ -1,6 +1,8 @@
 package com.moringaschool.divaapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 //import com.moringaschool.divaapp.models.TrackList;
 //import com.moringaschool.divaapp.models.TrackSearchResponse;
 
+import com.moringaschool.divaapp.adapters.MultimediaListAdapter;
 import com.moringaschool.divaapp.models.Business;
 import com.moringaschool.divaapp.models.Category;
 import com.moringaschool.divaapp.MusicArrayAdapter;
@@ -24,6 +27,7 @@ import com.moringaschool.divaapp.network.YelpApi;
 import com.moringaschool.divaapp.models.YelpBusinessSearchResponse;
 import com.moringaschool.divaapp.network.YelpClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,10 +38,16 @@ import retrofit2.Response;
 
 public class TracksActivity extends AppCompatActivity {
 
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.listView) ListView mListView;
     @BindView(R.id.tracksTextView) TextView mTracksTextView;
+
+    public List<Business> medias;
+
+    private MultimediaListAdapter mAdapter;
+    public ArrayList<Business> mMedias = new ArrayList<>();
 
 //    private ListView mListView;
 
@@ -69,6 +79,12 @@ public class TracksActivity extends AppCompatActivity {
             public void onResponse(Call<YelpBusinessSearchResponse> call, Response<YelpBusinessSearchResponse> response) {
                 hideProgressBar();
                 if (response.isSuccessful()) {
+//                    medias = response.body().getBusinesses();
+//                    mAdapter = new MultimediaListAdapter(TracksActivity.this,medias);
+//                    mRecyclerView.setAdapter(mAdapter);
+//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TracksActivity.this);
+//                    mRecyclerView.setLayoutManager(layoutManager);
+//                    mRecyclerView.setHasFixedSize(true);
                     List<Business> mediaList = response.body().getBusinesses();
                     String[] medias = new String[mediaList.size()];
                     String[] categories = new String[mediaList.size()];
@@ -85,6 +101,7 @@ public class TracksActivity extends AppCompatActivity {
                     ArrayAdapter adapter
                             = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, medias, categories);
                     mListView.setAdapter(adapter);
+
                     showMedias();
 
                 } else {
