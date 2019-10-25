@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TracksActivity">
+    tools:context=".UI.TracksActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tracksTextView"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -19,7 +27,8 @@
         android:layout_height="wrap_content"
         android:text="Tracks"
         android:textSize="40sp"
-        android:textColor="@android:color/darker_gray"/>
+        android:textColor="@android:color/darker_gray"
+        android:visibility="gone"/>
 
     <ListView
         android:id="@+id/listView"
@@ -31,6 +40,23 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="-82dp"
         android:layout_marginRight="-82dp"
-        android:textColor="@android:color/primary_text_dark" />
+        android:textColor="@android:color/primary_text_dark"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:visibility="gone" />
+
 
 </RelativeLayout>

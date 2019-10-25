@@ -1,5 +1,7 @@
-package com.moringaschool.divaapp;
+package com.moringaschool.divaapp.network;
 
+
+import com.moringaschool.divaapp.network.YelpApi;
 
 import java.io.IOException;
 
@@ -40,5 +42,5 @@ public class YelpClient {
 
         return retrofit.create(YelpApi.class);
     }
-}
+
 }
