@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UI.CreateAccountActivity"></activity>
-        <activity android:name=".UI.LoginActivity" />
+        <activity android:name=".UI.MainActivity"
+            android:theme="@style/NoActionBarTheme"/>
         <activity android:name=".UI.MediaDetailActivity" />
         <activity android:name=".UI.ArtistActivity">
             <meta-data
@@ -25,7 +26,7 @@
                 android:value="com.moringaschool.divaapp.UI.ArtistActivity" />
         </activity>
         <activity
-            android:name=".UI.MainActivity"
+            android:name=".UI.LoginActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
