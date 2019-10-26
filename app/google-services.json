@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "639968788390",
+    "firebase_url": "https://divaapp-aecd7.firebaseio.com",
+    "project_id": "divaapp-aecd7",
+    "storage_bucket": "divaapp-aecd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639968788390:android:ab50c1910cfec32758d967",
+        "android_client_info": {
+          "package_name": "com.moringaschool.divaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639968788390-gte7u6bj4v5fa6uttakn4i55ao2k51k8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.divaapp",
+            "certificate_hash": "60825c451d1ba7b7a1f506c35a747804c50e643e"
+          }
+        },
+        {
+          "client_id": "639968788390-e13j65968dr95orct029sjfdcgo2d94d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKYBn0wClqorjm16kShqL9SR23aluPvtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639968788390-e13j65968dr95orct029sjfdcgo2d94d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
