@@ -5,15 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.moringaschool.divaapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = LoginActivity.class.getSimpleName();
+
+    @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
+    @BindView(R.id.emailEditText) EditText mEmailEditText;
+    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         ButterKnife.bind(this);
         mRegisterTextView.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
