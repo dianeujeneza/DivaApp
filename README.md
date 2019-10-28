@@ -26,7 +26,7 @@ The output is to listen to the music of your choice.
     * Registered users will be able to retrieve data from the database
 
 ## Technologies Used
-Java,Android,
+Java,Android,Firebase
 ## Support and contact details
 If countered a problem please don't hesitate to email me on dianesis17@gmail.com.
 ### License
