@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".UI.CreateAccountActivity"></activity>
         <activity android:name=".UI.MainActivity"
-            android:theme="@style/NoActionBarTheme"/>
+            />
         <activity android:name=".UI.MediaDetailActivity" />
         <activity android:name=".UI.ArtistActivity">
             <meta-data

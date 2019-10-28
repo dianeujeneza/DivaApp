@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.findTracksBtn) Button mFindTracksButton;
     @BindView(R.id.trackEditText) EditText mTrack_name;
+    @BindView(R.id.logoutButton) Button mLogoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 String location = mTrack_name.getText().toString();
                 Intent intent = new Intent(MainActivity.this, TracksActivity.class);
                 intent.putExtra("location", location);
+                startActivity(intent);
+            }
+        });
+
+        mLogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
