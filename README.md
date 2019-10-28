@@ -21,6 +21,9 @@ Next you will find different tabs
 Navigate through them to choose what you want,
 The output is to listen to the music of your choice.
 
+* Users will be able to register and their data will be saved to firebase
+*
+
 ## Technologies Used
 Java,Android
 ## Support and contact details
