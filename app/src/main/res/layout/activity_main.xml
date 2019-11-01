@@ -17,12 +17,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Divas!"
+        android:text="Welcome To Divas!"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorTextIcons"
         android:layout_marginTop="80dp"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="italic"
        />
 
@@ -52,13 +52,13 @@
         android:textColor="@color/colorSecondaryText"
         android:background="@color/colorTextIcons"/>
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/findTracksBtn"
-        android:text="Logout"
-        android:background="@color/colorTextIcons"
-        android:textColor="@color/colorSecondaryText"/>
+<!--    <Button-->
+<!--        android:id="@+id/logoutButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBottom="@+id/findTracksBtn"-->
+<!--        android:text="Logout"-->
+<!--        android:background="@color/colorTextIcons"-->
+<!--        android:textColor="@color/colorSecondaryText"/>-->
 
 </RelativeLayout>

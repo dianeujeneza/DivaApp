@@ -79,30 +79,30 @@ public class TracksActivity extends AppCompatActivity {
             public void onResponse(Call<YelpBusinessSearchResponse> call, Response<YelpBusinessSearchResponse> response) {
                 hideProgressBar();
                 if (response.isSuccessful()) {
-//                    medias = response.body().getBusinesses();
-//                    mAdapter = new MultimediaListAdapter(TracksActivity.this,medias);
-//                    mRecyclerView.setAdapter(mAdapter);
-//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TracksActivity.this);
-//                    mRecyclerView.setLayoutManager(layoutManager);
-//                    mRecyclerView.setHasFixedSize(true);
-                    List<Business> mediaList = response.body().getBusinesses();
-                    String[] medias = new String[mediaList.size()];
-                    String[] categories = new String[mediaList.size()];
-
-                    for (int i = 0; i < medias.length; i++){
-                        medias[i] = mediaList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = mediaList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-
-                    ArrayAdapter adapter
-                            = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, medias, categories);
-                    mListView.setAdapter(adapter);
-
-                    showMedias();
+                    medias = response.body().getBusinesses();
+                    mAdapter = new MultimediaListAdapter(TracksActivity.this,medias);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TracksActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+//                    List<Business> mediaList = response.body().getBusinesses();
+//                    String[] medias = new String[mediaList.size()];
+//                    String[] categories = new String[mediaList.size()];
+//
+//                    for (int i = 0; i < medias.length; i++){
+//                        medias[i] = mediaList.get(i).getName();
+//                    }
+//
+//                    for (int i = 0; i < categories.length; i++) {
+//                        Category category = mediaList.get(i).getCategories().get(0);
+//                        categories[i] = category.getTitle();
+//                    }
+//
+//                    ArrayAdapter adapter
+//                            = new MusicArrayAdapter(TracksActivity.this, android.R.layout.simple_list_item_1, medias, categories);
+//                    mListView.setAdapter(adapter);
+//
+//                    showMedias();
 
                 } else {
                     showUnsuccessfulMessage();
