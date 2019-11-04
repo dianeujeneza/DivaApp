@@ -45,6 +45,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
+
+        Animation animate = AnimationUtils.loadAnimation(this,R.anim.bounce);
+        mRegisterTextView.startAnimation(animate);
+
         mRegisterTextView.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
         mPasswordLoginButton.setOnClickListener(this);
@@ -63,8 +67,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         };
 
-        Animation animate = AnimationUtils.loadAnimation(this,R.anim.);
-        mRegisterTextView.startAnimation(animate);
     }
 
     private void createAuthProgressDialog() {
@@ -119,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    @Override
 //    public void onItemSelected() {
 //        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
-//                R.animator.bounce);
+//                R.anim.bounce);
 //        set.setTarget(set);
 //        set.start();
 //    }
@@ -127,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    @Override
 //    public void onItemClear() {
 //        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
-//                R.animator.drag_scale_off);
+//                R.anim.drag_scale_off);
 //        set.setTarget(itemView);
 //        set.start();
 //    }
