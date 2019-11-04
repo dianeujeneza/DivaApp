@@ -1,4 +1,6 @@
 package com.moringaschool.divaapp.adapters;
 
-public class FirebaseViewHolder {
+import androidx.recyclerview.widget.RecyclerView;
+
+public class FirebaseViewHolder extends RecyclerView.ViewHolder implements ItemTo {
 }
