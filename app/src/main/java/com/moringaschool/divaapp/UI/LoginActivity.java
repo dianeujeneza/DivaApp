@@ -3,11 +3,15 @@ package com.moringaschool.divaapp.UI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -58,6 +62,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         };
+
+        Animation animate = AnimationUtils.loadAnimation(this,R.anim.);
+        mRegisterTextView.startAnimation(animate);
     }
 
     private void createAuthProgressDialog() {
@@ -108,6 +115,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
 
     }
+//
+//    @Override
+//    public void onItemSelected() {
+//        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+//                R.animator.bounce);
+//        set.setTarget(set);
+//        set.start();
+//    }
+//
+//    @Override
+//    public void onItemClear() {
+//        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+//                R.animator.drag_scale_off);
+//        set.setTarget(itemView);
+//        set.start();
+//    }
 
 
     @Override
