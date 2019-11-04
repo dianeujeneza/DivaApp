@@ -1,4 +1,7 @@
 package com.moringaschool.divaapp.util;
 
-public class SimpleItemTouchHelperCallback {
+import androidx.recyclerview.widget.ItemTouchHelper;
+
+public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
+
 }
