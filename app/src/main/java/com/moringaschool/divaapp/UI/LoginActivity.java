@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         ButterKnife.bind(this);
 
-        Animation animate = AnimationUtils.loadAnimation(this,R.anim.bounce);
-        mRegisterTextView.startAnimation(animate);
+        Animation animate = AnimationUtils.loadAnimation(this,R.anim.blinking);
+        mPasswordLoginButton.startAnimation(animate);
 
         mRegisterTextView.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
