@@ -26,17 +26,17 @@
         android:textStyle="italic"
        />
 
-<!--    <EditText-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/trackEditText"-->
-<!--        android:background="@color/colorTextIcons"-->
-<!--        android:layout_above="@+id/findTracksBtn"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:padding="5dp"-->
-<!--        android:inputType="text"-->
-<!--        android:hint="Enter Location"-->
-<!--        android:layout_centerHorizontal="true" />-->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/trackEditText"
+        android:background="@color/colorTextIcons"
+        android:layout_above="@+id/findTracksBtn"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:inputType="text"
+        android:hint="Enter Location"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/findTracksBtn"
@@ -51,14 +51,5 @@
         android:text="Explore"
         android:textColor="@color/colorSecondaryText"
         android:background="@color/colorTextIcons"/>
-
-<!--    <Button-->
-<!--        android:id="@+id/logoutButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignBottom="@+id/findTracksBtn"-->
-<!--        android:text="Logout"-->
-<!--        android:background="@color/colorTextIcons"-->
-<!--        android:textColor="@color/colorSecondaryText"/>-->
 
 </RelativeLayout>

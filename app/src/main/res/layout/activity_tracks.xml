@@ -14,13 +14,6 @@
         android:layout_marginTop="16dp"
         android:visibility="gone" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/bgg"
-        android:scaleType="centerCrop" />
-
     <TextView
         android:id="@+id/tracksTextView"
         android:layout_width="wrap_content"
@@ -37,10 +30,6 @@
         android:layout_below="@+id/tracksTextView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="-82dp"
-        android:layout_marginRight="-82dp"
-        android:textColor="@android:color/primary_text_dark"
         android:visibility="gone"/>
 
     <ProgressBar

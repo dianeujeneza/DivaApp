@@ -19,12 +19,11 @@ import com.moringaschool.divaapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.findTracksBtn) Button mFindTracksButton;
-//    @BindView(R.id.trackEditText) EditText mTrack_name;
-//    @BindView(R.id.logoutButton) Button mLogoutButton;
-private FirebaseAuth mAuth;
+    @BindView(R.id.trackEditText) EditText mTrack_name;
+    private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
@@ -33,6 +32,7 @@ private FirebaseAuth mAuth;
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        mFindTracksButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -47,23 +47,25 @@ private FirebaseAuth mAuth;
             }
         };
 
-        mFindTracksButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                String location = mTrack_name.getText().toString();
-                Intent intent = new Intent(MainActivity.this, TracksActivity.class);
-//                intent.putExtra("location", location);
-                startActivity(intent);
-            }
-        });
-
-//        mLogoutButton.setOnClickListener(new View.OnClickListener() {
+//        mFindTracksButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                String location = mTrack_name.getText().toString();
+//                Intent intent = new Intent(MainActivity.this, TracksActivity.class);
+//                intent.putExtra("location", location);
 //                startActivity(intent);
 //            }
 //        });
+
+    }
+    @Override
+    public void onClick(View view){
+        if (view == mFindTracksButton){
+            String location = mTrack_name.getText().toString();
+            Intent intent = new Intent(MainActivity.this, TracksActivity.class);
+            intent.putExtra("location", location);
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.moringaschool.divaapp.UI;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,7 +29,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MediaDetailFragment extends Fragment {
+public class MediaDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.mediaImageView) ImageView mImageLabel;
     @BindView(R.id.mediaNameTextView) TextView mNameLabel;
     @BindView(R.id.cuisineTextView) TextView mCategoriesLabel;
@@ -62,7 +64,7 @@ public class MediaDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_media_detail, container, false);
-        View view = inflater.inflate(R.layout.activity_media_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_media_detail, container, false);
         ButterKnife.bind(this, view);
 
         Picasso.get().load(mMedia.getImageUrl()).into(mImageLabel);
@@ -79,7 +81,31 @@ public class MediaDetailFragment extends Fragment {
         mPhoneLabel.setText(mMedia.getPhone());
         mAddressLabel.setText(mMedia.getLocation().toString());
 
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View view){
+        if (view == mWebsiteLabel){
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mMedia.getUrl()));
+            startActivity(webIntent);
+        }
+        if (view == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mMedia.getPhone()));
+            startActivity(phoneIntent);
+        }
+        if (view == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mMedia.getCoordinates().getLatitude()
+                            + "," + mMedia.getCoordinates().getLongitude()
+                            + "?q=(" + mMedia.getName() + ")"));
+            startActivity(mapIntent);
+        }
     }
 
 }

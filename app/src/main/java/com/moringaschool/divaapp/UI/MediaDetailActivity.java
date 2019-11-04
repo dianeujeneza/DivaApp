@@ -12,6 +12,7 @@ import com.moringaschool.divaapp.models.Business;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,7 +22,8 @@ public class MediaDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.viewPager) ViewPager mViewPager;
     private MediaPagerAdapter adapterViewPager;
-    List<Business> mMedias;
+    ArrayList<Business> mMedias = new ArrayList<>();
+//    List<Business> mMedias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

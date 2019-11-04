@@ -41,7 +41,7 @@ public class MultimediaListAdapter extends RecyclerView.Adapter<MultimediaListAd
 
     @Override
     public void onBindViewHolder(MultimediaListAdapter.MultimediaViewHolder holder, int position) {
-        holder.bindMedias(mMedias.get(position));
+        holder.bindMultimedia(mMedias.get(position));
     }
 
     @Override
@@ -64,7 +64,7 @@ public class MultimediaListAdapter extends RecyclerView.Adapter<MultimediaListAd
             itemView.setOnClickListener(this);
         }
 
-        public void bindMedias(Business media){
+        public void bindMultimedia(Business media){
             Picasso.get().load(media.getImageUrl()).into(mMediaImageView);
             mNameTextView.setText(media.getName());
             mCategoryTextView.setText(media.getCategories().get(0).getTitle());
